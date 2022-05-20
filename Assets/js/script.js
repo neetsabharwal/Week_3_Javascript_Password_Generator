@@ -3,8 +3,15 @@ var generateBtn = document.getElementById("generate");
 
 // Write password to the #password input
 function writePassword() {
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
+  var password = generatePassword();
+  var passwordText = document.getElementById("password");
+  if(password!=null){
+    passwordText.value = password;
+  }
+}
+
+//generate password function - returns password in happy path.. 
+function generatePassword(){
   var capsArr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   var smallArr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
   var numsArr = ['0','1','2','3','4','5','6','7','8','9'];
@@ -33,28 +40,25 @@ function writePassword() {
     {
       userPasswordSet = userPasswordSet.concat(spclArr);
     }
+    if(!caps&&!small&&!nums&&!spcls)
+    {
+      alert('Please select at least one type!')
+    }
+    else{
+      for(var index=0;index<n;index++)
+      {
+        function getRndInteger(min, max) {
+          return Math.floor(Math.random() * (max - min)) + min;
+        }
+        var randIndex = getRndInteger(0,userPasswordSet.length);
+        userPassword.push(userPasswordSet[randIndex]);
+      }
+    }
+    return userPassword.join('');
   }
   else{
     alert('Passwords must be within 8 and 128 characters');
   }
-  if(!caps&&!small&&!nums&&!spcls)
-  {
-    alert('Please select at least one type!')
-  }
-  else{
-    for(var index=0;index<n;index++)
-    {
-      function getRndInteger(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-      }
-      var randIndex = getRndInteger(0,userPasswordSet.length);
-      userPassword.push(userPasswordSet[randIndex]);
-    }
-    console.log(userPassword);
-  }
-  var passwordText = document.getElementById("password");
-  passwordText.value = userPassword.join('');
-
 }
 
 // Add event listener to generate button
