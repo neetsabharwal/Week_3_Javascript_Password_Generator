@@ -35,3 +35,6 @@ THEN the password is either displayed in an alert or written to the page
 * The URL of the deployed application: https://neetsabharwal.github.io/Week_3_Javascript_Password_Generator/
 
 * The URL of the GitHub repository: https://github.com/neetsabharwal/Week_3_Javascript_Password_Generator
+
+* Screenshot
+<img src="./Assets/images/preview.png">
